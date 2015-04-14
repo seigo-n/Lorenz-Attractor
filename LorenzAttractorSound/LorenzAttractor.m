@@ -40,7 +40,7 @@ double _pitch = 2000.0;
                                               userInfo:nil
                                                repeats:YES];
         _sineWaveSound = [SineWaveSound new];
-        [_sineWaveSound setVolume:0.4];
+        [_sineWaveSound setVolume:0.3];
 
     }
     return self;
