@@ -14,14 +14,15 @@
     NSTimer* _timer;
     NSMutableArray* _linePoints;
     SineWaveSound*  _sineWaveSound;
-    
-    
 }
 
 - (void)setSpeed:(int)newSpeed;
 - (void)setLength:(int)newLength;
 - (void)setVolume:(double)newVolume;
 - (void)setPitch:(double)newPitch;
+- (void)start;
+- (void)stop;
+- (BOOL)isRunning;
 
 
 

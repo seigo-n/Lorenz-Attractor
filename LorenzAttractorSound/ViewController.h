@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LorenzAttractor.h"
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet LorenzAttractor *lorenzGraphicsView;
+- (IBAction)stopOrStart:(id)sender;
 
 @end
 

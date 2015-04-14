@@ -43,7 +43,7 @@
                                 <color key="textColor" red="0.44109373429999998" green="1" blue="0.42255950050000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZTL-vo-tJu" userLabel="Volume Slider">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZTL-vo-tJu" userLabel="Volume Slider">
                                 <rect key="frame" x="301" y="565" width="290" height="31"/>
                                 <connections>
                                     <action selector="changeLength:" destination="kh9-bI-dsS" eventType="valueChanged" id="5a1-cg-kW1"/>
@@ -69,6 +69,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音のピッチ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kts-QY-bGD">
+                                <rect key="frame" x="411" y="501" width="70" height="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.44109373429999998" green="1" blue="0.42255950050000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQa-1V-XeK" userLabel="graphicsView" customClass="LorenzAttractor">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="501"/>
                                 <subviews>
@@ -80,20 +87,18 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="QBj-2U-wg8" secondAttribute="bottom" constant="5" id="DDy-cx-9Ye"/>
                                     <constraint firstAttribute="trailing" secondItem="QBj-2U-wg8" secondAttribute="trailing" constant="30" id="jHr-vL-zbz"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nzo-Ba-kZE" appends="YES" id="ZJY-nj-0aa"/>
+                                </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音のピッチ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kts-QY-bGD">
-                                <rect key="frame" x="411" y="501" width="70" height="17"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.44109373429999998" green="1" blue="0.42255950050000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="vbu-ht-SW5" firstAttribute="centerX" secondItem="xge-ts-0gR" secondAttribute="centerX" id="6In-Vf-OGe"/>
                             <constraint firstItem="vbu-ht-SW5" firstAttribute="top" secondItem="mlE-J8-N3n" secondAttribute="bottom" id="8de-yO-QR6"/>
@@ -132,8 +137,16 @@
                             <outlet property="volumeSlider" destination="ZTL-vo-tJu" id="hlt-4v-bIS"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="lorenzGraphicsView" destination="UQa-1V-XeK" id="teZ-1e-Fix"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="nzo-Ba-kZE">
+                    <connections>
+                        <action selector="stopOrStart:" destination="vXZ-lx-hvc" id="FFc-GU-ZSm"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="228" y="434"/>
         </scene>

@@ -18,6 +18,7 @@ double zRatio=-6.0;
 int speed =5;
 int lineLength=200;
 double _pitch = 2000.0;
+bool _running;
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self=[super initWithCoder:aDecoder];
@@ -34,11 +35,8 @@ double _pitch = 2000.0;
         
         _linePoints = [NSMutableArray array];
         
-        _timer=[NSTimer scheduledTimerWithTimeInterval:1.0f/30.0f
-                                                target:self
-                                              selector:@selector(onTick:)
-                                              userInfo:nil
-                                               repeats:YES];
+        [self startAnimation];
+        _running = true;
         _sineWaveSound = [SineWaveSound new];
         [_sineWaveSound setVolume:0.3];
 
@@ -80,6 +78,14 @@ double _pitch = 2000.0;
     }
 }
 
+- (void)startAnimation{
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1.0f/30.0f
+                                            target:self
+                                          selector:@selector(onTick:)
+                                          userInfo:nil
+                                           repeats:YES];
+}
+
 - (void)onTick:(NSTimer*)timer {
     double dx,dy,dz;
     
@@ -118,7 +124,7 @@ double _pitch = 2000.0;
             [_linePoints addObject:[NSValue valueWithCGPoint:CGPointMake( x , z-(50.0+2.0)/2.0 )] ];
         }
         
-        // 音出し
+        // 音出し関係、周波数計算
         double sz = z-(50.0+2.0)/2.0;
         double frq = _pitch + (sqrt( x*x + y*y + sz*sz)-10.0) * ([NSNumber numberWithInt:lineLength].doubleValue*0.3+5.0);
         [_sineWaveSound setFreq:frq];
@@ -131,6 +137,22 @@ double _pitch = 2000.0;
     
     [self setNeedsDisplay];    //再描画
     
+}
+
+- (void)start{
+    [self startAnimation];
+    [_sineWaveSound play];
+    _running = true;
+}
+
+- (void)stop{
+    [_timer invalidate];
+    [_sineWaveSound stop];
+    _running = false;
+}
+
+- (BOOL)isRunning{
+    return _running;
 }
 
 - (void)setSpeed:(int)newSpeed {

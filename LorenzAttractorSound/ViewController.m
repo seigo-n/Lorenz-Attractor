@@ -25,4 +25,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)stopOrStart:(id)sender {
+    if( self.lorenzGraphicsView.isRunning ){
+        [self.lorenzGraphicsView stop];
+    }else{
+        [self.lorenzGraphicsView start];
+    }
+}
+
 @end
