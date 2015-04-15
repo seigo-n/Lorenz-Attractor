@@ -46,6 +46,7 @@
 }
 
 - (void)setFreq:(double)newFreq{
+    if( newFreq < 1.0 ){ newFreq = 1.0; }
     _generatingFreq = newFreq;
 }
 

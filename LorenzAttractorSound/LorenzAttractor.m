@@ -14,7 +14,7 @@ double A,B,C,D;
 double x,y,z;
 double xRatio=6.0;
 double zRatio=-6.0;
-int speed =5;
+int speed =3;
 int lineLength=200;
 double _pitch = 2000.0;
 bool _running;
@@ -91,7 +91,7 @@ double _freq;
 }
 
 - (void)startAnimation{
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1.0f/30.0f
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1.0f/60.0f
                                             target:self
                                           selector:@selector(onTick:)
                                           userInfo:nil
