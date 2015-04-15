@@ -81,7 +81,6 @@ double _freq;
         style.alignment = NSTextAlignmentRight;
         
         [freqStr drawInRect:CGRectMake(5.0 , 20.0 , 80.0 , 50.0 )
-        //[freqStr drawAtPoint:CGPointMake(30 , 20  )
               withAttributes:@{
                                NSForegroundColorAttributeName:[UIColor orangeColor]
                                ,NSFontAttributeName:font
