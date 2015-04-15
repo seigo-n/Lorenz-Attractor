@@ -14,7 +14,6 @@
 		0479EA121AD9FACA0038C735 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0479EA111AD9FACA0038C735 /* Images.xcassets */; };
 		0479EA211AD9FACA0038C735 /* LorenzAttractorSoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479EA201AD9FACA0038C735 /* LorenzAttractorSoundTests.m */; };
 		0479EA2C1AD9FEC40038C735 /* LorenzAttractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479EA2B1AD9FEC40038C735 /* LorenzAttractor.m */; };
-		0479EA311ADA000A0038C735 /* ControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479EA301ADA000A0038C735 /* ControlPanel.m */; };
 		0479EA341ADA02580038C735 /* SineWaveSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479EA331ADA02580038C735 /* SineWaveSound.m */; };
 		0479EA361ADA02AF0038C735 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0479EA351ADA02AF0038C735 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
@@ -44,8 +43,6 @@
 		0479EA201AD9FACA0038C735 /* LorenzAttractorSoundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LorenzAttractorSoundTests.m; sourceTree = "<group>"; };
 		0479EA2A1AD9FEC40038C735 /* LorenzAttractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LorenzAttractor.h; sourceTree = "<group>"; };
 		0479EA2B1AD9FEC40038C735 /* LorenzAttractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LorenzAttractor.m; sourceTree = "<group>"; };
-		0479EA2F1ADA000A0038C735 /* ControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPanel.h; sourceTree = "<group>"; };
-		0479EA301ADA000A0038C735 /* ControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlPanel.m; sourceTree = "<group>"; };
 		0479EA321ADA02580038C735 /* SineWaveSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWaveSound.h; sourceTree = "<group>"; };
 		0479EA331ADA02580038C735 /* SineWaveSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineWaveSound.m; sourceTree = "<group>"; };
 		0479EA351ADA02AF0038C735 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -99,8 +96,6 @@
 				0479EA0B1AD9FACA0038C735 /* ViewController.h */,
 				0479EA0C1AD9FACA0038C735 /* ViewController.m */,
 				0479EA0E1AD9FACA0038C735 /* Main.storyboard */,
-				0479EA2F1ADA000A0038C735 /* ControlPanel.h */,
-				0479EA301ADA000A0038C735 /* ControlPanel.m */,
 				0479EA111AD9FACA0038C735 /* Images.xcassets */,
 				0479EA041AD9FACA0038C735 /* Supporting Files */,
 				0479EA321ADA02580038C735 /* SineWaveSound.h */,
@@ -237,7 +232,6 @@
 			files = (
 				0479EA0D1AD9FACA0038C735 /* ViewController.m in Sources */,
 				0479EA0A1AD9FACA0038C735 /* AppDelegate.m in Sources */,
-				0479EA311ADA000A0038C735 /* ControlPanel.m in Sources */,
 				0479EA2C1AD9FEC40038C735 /* LorenzAttractor.m in Sources */,
 				0479EA071AD9FACA0038C735 /* main.m in Sources */,
 				0479EA341ADA02580038C735 /* SineWaveSound.m in Sources */,

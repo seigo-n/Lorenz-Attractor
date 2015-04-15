@@ -7,7 +7,6 @@
 //
 
 #import "LorenzAttractor.h"
-#import "ControlPanel.h"
 
 @implementation LorenzAttractor
 
