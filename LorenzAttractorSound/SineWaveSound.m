@@ -118,7 +118,7 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
     
     // 前回とはgeneratingFreqが変わっていた場合でも、なるべく波形を連続的に繋ぐために、
     // 前回のwave値から始まりのphaseを逆算する。
-    double s = def.lastWave / def.volume;
+    double s = def.lastWave;
     if(  s > 1.0  ){ s = 1.0; }
     if(  s < -1.0  ){ s = -1.0; }
     s = asin(s) * ( def.sampleRate/(def.generatingFreq* 2.0 * M_PI) );
@@ -144,14 +144,14 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
     }
     // 次回の準備
     def.lastPhase = phase - freq;
-    def.lastWave  = sin(def.lastPhase) * def.volume;
+    def.lastWave  = sin(def.lastPhase);
     
     return noErr;
     /*
      NSLog(@"lastPhase:%f  s:%f", def.lastPhase , s );
      NSLog(@"sin lastPhase:%f  s:%f", sin(def.lastPhase) , sin(s) );
      NSLog(@"cos lastPhase:%f  s:%f", cos(def.lastPhase) , cos(s) );
-     NSLog(@"lastWave:%f  s:%f",def.lastWave , sin(s) * volume  );
+     NSLog(@"lastWave:%f  s:%f",def.lastWave , sin(s) );
      */
 }
 
