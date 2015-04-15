@@ -11,8 +11,11 @@
 
 @interface SineWaveSound : NSObject
 
-@property(nonatomic) double phase;
+@property(nonatomic) double lastPhase;
+@property(nonatomic) float lastWave;
 @property(nonatomic) Float64 sampleRate;
+@property(nonatomic) double generatingFreq;
+@property(nonatomic) double volume;
 
 - (void)play;
 - (void)stop;
