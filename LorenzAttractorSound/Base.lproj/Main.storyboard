@@ -20,7 +20,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="2" maxValue="600" translatesAutoresizingMaskIntoConstraints="NO" id="xge-ts-0gR" userLabel="Length Slider">
                                 <rect key="frame" x="9" y="565" width="290" height="31"/>
                                 <connections>
-                                    <action selector="changeLength:" destination="kh9-bI-dsS" eventType="valueChanged" id="2Dy-Je-5JK"/>
+                                    <action selector="changeLength:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Hbh-QX-FqJ"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="線の長さ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbu-ht-SW5">
@@ -33,7 +33,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-J8-N3n" userLabel="Speed Slider">
                                 <rect key="frame" x="9" y="518" width="290" height="31"/>
                                 <connections>
-                                    <action selector="changeSpeed:" destination="kh9-bI-dsS" eventType="valueChanged" id="SWv-0C-iQW"/>
+                                    <action selector="changeSpeed:" destination="vXZ-lx-hvc" eventType="valueChanged" id="DT1-wt-8GD"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スピード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEu-Eo-W4p">
@@ -46,8 +46,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.29999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZTL-vo-tJu" userLabel="Volume Slider">
                                 <rect key="frame" x="301" y="565" width="290" height="31"/>
                                 <connections>
-                                    <action selector="changeLength:" destination="kh9-bI-dsS" eventType="valueChanged" id="5a1-cg-kW1"/>
-                                    <action selector="changeVolume:" destination="kh9-bI-dsS" eventType="valueChanged" id="XxC-6L-47N"/>
+                                    <action selector="changeVolume:" destination="vXZ-lx-hvc" eventType="valueChanged" id="8Nv-WX-XLa"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFL-2b-xCX">
@@ -60,8 +59,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2000" minValue="300" maxValue="4000" translatesAutoresizingMaskIntoConstraints="NO" id="Apa-e4-kyT" userLabel="pitch Slider">
                                 <rect key="frame" x="301" y="518" width="290" height="31"/>
                                 <connections>
-                                    <action selector="changeLength:" destination="kh9-bI-dsS" eventType="valueChanged" id="g85-Dh-phX"/>
-                                    <action selector="changePitch:" destination="kh9-bI-dsS" eventType="valueChanged" id="Qkq-ur-8kn"/>
+                                    <action selector="changePitch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="mmO-jq-Tab"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcX-Yu-P6K">
@@ -116,13 +114,6 @@
                             <constraint firstItem="xge-ts-0gR" firstAttribute="leading" secondItem="mlE-J8-N3n" secondAttribute="leading" id="t2v-sx-Zed"/>
                             <constraint firstItem="UQa-1V-XeK" firstAttribute="bottom" secondItem="pEu-Eo-W4p" secondAttribute="top" id="yQ8-yY-Tco"/>
                         </constraints>
-                        <connections>
-                            <outlet property="graphicsView" destination="UQa-1V-XeK" id="TSg-8e-0VN"/>
-                            <outlet property="lengthSlider" destination="xge-ts-0gR" id="NWt-pH-i3T"/>
-                            <outlet property="pitchSlider" destination="Apa-e4-kyT" id="RSi-Ax-AJF"/>
-                            <outlet property="speedSlider" destination="mlE-J8-N3n" id="8yZ-kj-vzx"/>
-                            <outlet property="volumeSlider" destination="ZTL-vo-tJu" id="hlt-4v-bIS"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="lorenzGraphicsView" destination="UQa-1V-XeK" id="teZ-1e-Fix"/>

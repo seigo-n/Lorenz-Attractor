@@ -14,5 +14,12 @@
 @property (weak, nonatomic) IBOutlet LorenzAttractor *lorenzGraphicsView;
 - (IBAction)stopOrStart:(id)sender;
 
+
+- (IBAction)changeLength:(id)sender;
+- (IBAction)changeSpeed:(id)sender;
+- (IBAction)changeVolume:(id)sender;
+- (IBAction)changePitch:(id)sender;
+
+
 @end
 

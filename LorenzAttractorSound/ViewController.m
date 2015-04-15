@@ -33,4 +33,20 @@
     }
 }
 
+- (IBAction)changeLength:(id)sender {
+    [self.lorenzGraphicsView setLength:[NSNumber numberWithDouble:((UISlider*)sender).value].intValue];
+}
+
+- (IBAction)changeSpeed:(id)sender {
+    [self.lorenzGraphicsView setSpeed:[NSNumber numberWithDouble:((UISlider*)sender).value].intValue];
+}
+
+- (IBAction)changeVolume:(id)sender {
+    [self.lorenzGraphicsView setVolume:((UISlider*)sender).value];
+}
+
+- (IBAction)changePitch:(id)sender {
+    [self.lorenzGraphicsView setPitch:((UISlider*)sender).value];
+}
+
 @end
