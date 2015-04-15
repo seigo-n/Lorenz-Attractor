@@ -19,6 +19,7 @@ int speed =5;
 int lineLength=200;
 double _pitch = 2000.0;
 bool _running;
+double _freq;
 
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self=[super initWithCoder:aDecoder];
@@ -39,6 +40,7 @@ bool _running;
         _running = true;
         _sineWaveSound = [SineWaveSound new];
         [_sineWaveSound setVolume:0.3];
+        _freq = 0.0;
 
     }
     return self;
@@ -73,7 +75,19 @@ bool _running;
         // 描画
         [lines stroke];
         
+        //周波数表示
+        NSString* freqStr = [NSString stringWithFormat:@"%5.0f Hz",_freq];
+        UIFont *font = [UIFont boldSystemFontOfSize:18.0f];
+        NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+        style.alignment = NSTextAlignmentRight;
         
+        [freqStr drawInRect:CGRectMake(5.0 , 20.0 , 80.0 , 50.0 )
+        //[freqStr drawAtPoint:CGPointMake(30 , 20  )
+              withAttributes:@{
+                               NSForegroundColorAttributeName:[UIColor orangeColor]
+                               ,NSFontAttributeName:font
+                               ,NSParagraphStyleAttributeName:style
+                               }];
 
     }
 }
@@ -126,13 +140,13 @@ bool _running;
         
         // 音出し関係、周波数計算
         double sz = z-(50.0+2.0)/2.0;
-        double frq = _pitch + (sqrt( x*x + y*y + sz*sz)-10.0) * ([NSNumber numberWithInt:lineLength].doubleValue*0.3+5.0);
-        [_sineWaveSound setFreq:frq];
+        _freq = _pitch + (sqrt( x*x + y*y + sz*sz)-10.0) * ([NSNumber numberWithInt:lineLength].doubleValue*0.3+5.0);
+        if( _freq<0.0 ){
+            _freq = 0.0;
+        }
+        [_sineWaveSound setFreq:_freq];
         if( !_sineWaveSound.isPlaying ){ [_sineWaveSound play]; }
 
-        //周波数表示
-        [(ControlPanel*)self.superview setFreqCounterLabel:frq];
-        
     }
     
     [self setNeedsDisplay];    //再描画

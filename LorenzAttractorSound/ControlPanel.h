@@ -22,11 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet LorenzAttractor *graphicsView;
 
-@property (weak, nonatomic) IBOutlet UILabel *freqLabel;
-
 @property (weak, nonatomic) IBOutlet UISlider *pitchSlider;
 - (IBAction)changePitch:(id)sender;
 
-- (void) setFreqCounterLabel:(double)freq;
 
 @end

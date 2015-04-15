@@ -64,7 +64,7 @@
                                     <action selector="changePitch:" destination="kh9-bI-dsS" eventType="valueChanged" id="Qkq-ur-8kn"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcX-Yu-P6K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcX-Yu-P6K">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -78,20 +78,8 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQa-1V-XeK" userLabel="graphicsView" customClass="LorenzAttractor">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="501"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Hz" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBj-2U-wg8" userLabel="freq counter Label">
-                                        <rect key="frame" x="535" y="475" width="35" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.58713350350000004" blue="0.33203508599999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="QBj-2U-wg8" secondAttribute="bottom" constant="5" id="DDy-cx-9Ye"/>
-                                    <constraint firstAttribute="trailing" secondItem="QBj-2U-wg8" secondAttribute="trailing" constant="30" id="jHr-vL-zbz"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="nzo-Ba-kZE" appends="YES" id="ZJY-nj-0aa"/>
                                 </connections>
@@ -129,7 +117,6 @@
                             <constraint firstItem="UQa-1V-XeK" firstAttribute="bottom" secondItem="pEu-Eo-W4p" secondAttribute="top" id="yQ8-yY-Tco"/>
                         </constraints>
                         <connections>
-                            <outlet property="freqLabel" destination="QBj-2U-wg8" id="mYg-Ph-mSr"/>
                             <outlet property="graphicsView" destination="UQa-1V-XeK" id="TSg-8e-0VN"/>
                             <outlet property="lengthSlider" destination="xge-ts-0gR" id="NWt-pH-i3T"/>
                             <outlet property="pitchSlider" destination="Apa-e4-kyT" id="RSi-Ax-AJF"/>

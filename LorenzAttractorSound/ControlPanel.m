@@ -35,9 +35,4 @@
     [self.graphicsView setPitch:self.pitchSlider.value];
 }
 
-- (void) setFreqCounterLabel:(double)freq{
-    if( freq<0.0 ){ freq = 0.0; }
-    self.freqLabel.text = [NSString stringWithFormat:@"%5.0f Hz",freq];
-}
-
 @end
