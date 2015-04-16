@@ -143,9 +143,10 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
     SInt32 *outR = ioData->mBuffers[1].mData;
     SInt32 sample = 0;
     float wave = 0.0;
+    double vv = def.volume * def.volume * def.volume;
     
     for (int i = 0; i < inNumberFrames; i++) {
-        wave = sin(phase) * def.volume * def.volume;
+        wave = sin(phase) * vv;
         sample = wave * (1 << kAudioUnitSampleFractionBits);
         *outL++ = sample;
         *outR++ = sample;
