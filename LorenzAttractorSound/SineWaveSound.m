@@ -57,6 +57,15 @@
 - (void)setVolume:(double)newVolume{
     if( newVolume<0.0 ){ newVolume = 0.0; }
     _volume = newVolume;
+    
+    /*
+     AudioUnitSetParameter(_audioUnit,
+                          kHALOutputParam_Volume,
+                          kAudioUnitScope_Global,
+                          0,
+                          _volume,
+                          0);
+     */
 }
 
 - (void)prepareAudioUnit {
@@ -136,7 +145,7 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
     float wave = 0.0;
     
     for (int i = 0; i < inNumberFrames; i++) {
-        wave = sin(phase) * def.volume;
+        wave = sin(phase) * def.volume * def.volume;
         sample = wave * (1 << kAudioUnitSampleFractionBits);
         *outL++ = sample;
         *outR++ = sample;
@@ -146,7 +155,7 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
     // 次回の準備
     def.lastPhase = phase - freq;
     def.lastWave  = sin(def.lastPhase);
-    
+
     return noErr;
     /*
      NSLog(@"lastPhase:%f  s:%f", def.lastPhase , s );

@@ -91,7 +91,7 @@ double _freq;
 }
 
 - (void)startAnimation{
-    _timer=[NSTimer scheduledTimerWithTimeInterval:1.0f/60.0f
+    _timer=[NSTimer scheduledTimerWithTimeInterval:1.0f/90.0f
                                             target:self
                                           selector:@selector(onTick:)
                                           userInfo:nil
