@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "VOLUME of sound"; ObjectID = "kFL-2b-xCX"; */
+"kFL-2b-xCX.text" = "VOLUME of sound";
+
+/* Class = "UILabel"; text = "PITCH of sound"; ObjectID = "kts-QY-bGD"; */
+"kts-QY-bGD.text" = "PITCH of sound";
+
+/* Class = "UILabel"; text = "SPEED"; ObjectID = "pEu-Eo-W4p"; */
+"pEu-Eo-W4p.text" = "SPEED";
+
+/* Class = "UILabel"; text = "LENGTH"; ObjectID = "vbu-ht-SW5"; */
+"vbu-ht-SW5.text" = "LENGTH";

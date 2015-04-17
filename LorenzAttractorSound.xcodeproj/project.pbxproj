@@ -29,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043AAF851AE0A49500F085D8 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		043AAF861AE0A98C00F085D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0479EA011AD9FACA0038C735 /* LorenzAttractorSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LorenzAttractorSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0479EA051AD9FACA0038C735 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0479EA061AD9FACA0038C735 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -192,7 +194,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 0479E9F81AD9FAC90038C735;
@@ -261,6 +262,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				0479EA0F1AD9FACA0038C735 /* Base */,
+				043AAF851AE0A49500F085D8 /* ja */,
+				043AAF861AE0A98C00F085D8 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "829a6bcf-486a-4163-bef4-e8e03fcc3712";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -326,6 +330,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SEIGO NAKAMURA (27LJ3ASKC9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -339,6 +344,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "829a6bcf-486a-4163-bef4-e8e03fcc3712";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "音量"; ObjectID = "kFL-2b-xCX"; */
+"kFL-2b-xCX.text" = "音量";
+
+/* Class = "UILabel"; text = "音のピッチ"; ObjectID = "kts-QY-bGD"; */
+"kts-QY-bGD.text" = "音のピッチ";
+
+/* Class = "UILabel"; text = "スピード"; ObjectID = "pEu-Eo-W4p"; */
+"pEu-Eo-W4p.text" = "スピード";
+
+/* Class = "UILabel"; text = "線の長さ"; ObjectID = "vbu-ht-SW5"; */
+"vbu-ht-SW5.text" = "線の長さ";
