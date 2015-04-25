@@ -18,7 +18,9 @@
     self = [super init];
     if (self != nil){
         _generatingFreq = 440.0;
-        self.lastPhase = 0.0;
+        _lastFreq = _generatingFreq;
+        _lastPhase = 0.0;
+        _lastWave = 0.0;
         _volume = 1.0;
         [self prepareAudioUnit];
     }
@@ -117,6 +119,7 @@
     _lastWave = 0.0;
 }
 
+
 static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioActionFlags, const AudioTimeStamp* inTimeStamp, UInt32 inBusNumber, UInt32 inNumberFrames, AudioBufferList* ioData) {
     
     // この callback 関数で audioUnit への input となる音の波形を生成する
@@ -125,37 +128,53 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
     
     float freq = def.generatingFreq * 2.0 * M_PI / def.sampleRate;
     double phase = def.lastPhase;
+    double wave = def.lastWave;
     
-    // 前回とはgeneratingFreqが変わっていた場合でも、なるべく波形を連続的に繋ぐために、
-    // 前回のwave値から始まりのphaseを逆算する。
-    double s = def.lastWave;
-    if(  s > 1.0  ){ s = 1.0; }
-    if(  s < -1.0  ){ s = -1.0; }
-    s = asin(s) * ( def.sampleRate/(def.generatingFreq* 2.0 * M_PI) );
-    s = s * freq;
-    if( cos(def.lastPhase) < 0.0 ){
-        s = M_PI -s;
-    }
-    phase = s + freq;
+    double s;
     
-    //
     SInt32 *outL = ioData->mBuffers[0].mData;
     SInt32 *outR = ioData->mBuffers[1].mData;
     SInt32 sample = 0;
-    float wave = 0.0;
     double vv = def.volume * def.volume * def.volume;
     
     for (int i = 0; i < inNumberFrames; i++) {
-        wave = sin(phase) * vv;
-        sample = wave * (1 << kAudioUnitSampleFractionBits);
+        if( def.generatingFreq != def.lastFreq ){
+            // 前回とはgeneratingFreqが変わっていた場合でも、なるべく波形を連続的に繋ぐために、
+            // 前回のwave値から今回のphaseを逆算する。
+            freq = def.generatingFreq * 2.0 * M_PI / def.sampleRate;
+            s = wave;
+            if(  s > 1.0  ){
+                s = 1.0;
+            }
+            if(  s < -1.0  ){
+                s = -1.0;
+            }
+            s = asin(s) ;
+            if( cos(def.lastPhase) < 0.0 ){
+                s = M_PI -s;
+            }
+
+            phase = s + freq;
+            def.lastFreq = def.generatingFreq;
+            
+            
+        }
+        
+        wave = sin(phase);
+        sample = (wave * vv ) * (1 << kAudioUnitSampleFractionBits);
         *outL++ = sample;
         *outR++ = sample;
         
+        def.lastPhase = phase;
+        
         phase = phase + freq;
+        if( phase > 2.0*M_PI ){
+            phase = phase - 2.0*M_PI;
+        }
     }
     // 次回の準備
     def.lastPhase = phase - freq;
-    def.lastWave  = sin(def.lastPhase);
+    def.lastWave  = wave;
 
     return noErr;
     /*
@@ -163,6 +182,11 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
      NSLog(@"sin lastPhase:%f  s:%f", sin(def.lastPhase) , sin(s) );
      NSLog(@"cos lastPhase:%f  s:%f", cos(def.lastPhase) , cos(s) );
      NSLog(@"lastWave:%f  s:%f",def.lastWave , sin(s) );
+     if( sin(def.lastPhase)-sin(s)>0.00001 ){
+     NSLog(@"!sin :%f  s:%f", sin(def.lastPhase) , sin(s) );
+     s=s;
+     }
+     NSLog(@"sin :%f  s:%f", sin(def.lastPhase) , sin(s) );
      */
 }
 

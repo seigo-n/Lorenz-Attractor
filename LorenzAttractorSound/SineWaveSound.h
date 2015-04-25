@@ -13,6 +13,7 @@
 
 @property(nonatomic) double lastPhase;
 @property(nonatomic) float lastWave;
+@property(nonatomic) double lastFreq;
 @property(nonatomic) Float64 sampleRate;
 @property(nonatomic) double generatingFreq;
 @property(nonatomic) double volume;
