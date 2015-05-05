@@ -134,15 +134,16 @@ double _freq;
             
             [_linePoints removeObjectAtIndex:0];
             [_linePoints addObject:[NSValue valueWithCGPoint:CGPointMake( x , z-(50.0+2.0)/2.0 )] ];
+
+            // 音出し関係、周波数計算
+            double sz = z-(50.0+2.0)/2.0;
+            _freq = _pitch + (sqrt( x*x + y*y + sz*sz)-10.0) * ([NSNumber numberWithInt:lineLength].doubleValue*0.3+5.0);
+            if( _freq<0.0 ){
+                _freq = 0.0;
+            }
+            [_sineWaveSound setFreq:_freq];
         }
         
-        // 音出し関係、周波数計算
-        double sz = z-(50.0+2.0)/2.0;
-        _freq = _pitch + (sqrt( x*x + y*y + sz*sz)-10.0) * ([NSNumber numberWithInt:lineLength].doubleValue*0.3+5.0);
-        if( _freq<0.0 ){
-            _freq = 0.0;
-        }
-        [_sineWaveSound setFreq:_freq];
         if( !_sineWaveSound.isPlaying ){ [_sineWaveSound play]; }
 
     }

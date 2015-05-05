@@ -186,6 +186,10 @@ static OSStatus renderCallback(void* inRefCon, AudioUnitRenderActionFlags* ioAct
      NSLog(@"!sin :%f  s:%f", sin(def.lastPhase) , sin(s) );
      s=s;
      }
+     if( sin(def.lastPhase)-sin(s)>0.00001 ){
+     NSLog(@"!sin :%f  s:%f", sin(def.lastPhase) , sin(s) );
+     s=s;
+     }
      NSLog(@"sin :%f  s:%f", sin(def.lastPhase) , sin(s) );
      */
 }
